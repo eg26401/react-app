@@ -6,7 +6,7 @@ function Header() {
       <header className="header">
         <div className="container">
           <div className="logo">
-            <a href="/">MyWebsite</a>
+            <a href="/">tube route finder</a>
           </div>
 
           <nav className="nav-menu">
@@ -16,12 +16,6 @@ function Header() {
               </li>
               <li>
                 <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/services">Services</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
               </li>
             </ul>
           </nav>
