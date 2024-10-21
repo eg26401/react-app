@@ -1,7 +1,11 @@
-import ListGroup from "./components/ListGroup";
+import Header from "./components/Header";
 
-function App(){
-  return <div><ListGroup /></div>
+function App() {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
