@@ -1,6 +1,6 @@
 import "./Header.css"; // You can add custom styles in a CSS file or use inline styles
 
-const Header = () => {
+function Header() {
   return (
     <>
       <header className="header">
@@ -38,6 +38,6 @@ const Header = () => {
       </header>
     </>
   );
-};
+}
 
 export default Header;
