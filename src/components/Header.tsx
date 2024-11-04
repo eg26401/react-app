@@ -1,6 +1,9 @@
 import "./Header.css"; // You can add custom styles in a CSS file or use inline styles
 
 function Header() {
+  let loggedIn = false;
+  if (loggedIn == false) return;
+
   return (
     <>
       <header className="header">
