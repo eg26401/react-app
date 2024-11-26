@@ -5,6 +5,7 @@ import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
 import ResultsPage from "./pages/ResultsPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import Map from "./components/Map";
 
 import SearchBar from "./components/Search";
 import Header from "./components/Header";
@@ -15,6 +16,7 @@ function App() {
       <div>
         <Header />
         <SearchBar />
+        <Map />
 
         <BrowserRouter>
           <Routes>

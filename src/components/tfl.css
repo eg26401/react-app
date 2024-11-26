@@ -1,0 +1,95 @@
+/* Tube Line Colors */
+
+/* Bakerloo Line */
+.bakerloo-line {
+    background-color: #B36305; /* Brown */
+    color: #ffffff; /* White text */
+}
+
+/* Central Line */
+.central-line {
+    background-color: #E32017; /* Red */
+    color: #ffffff;
+}
+
+/* Circle Line */
+.circle-line {
+    background-color: #FFD300; /* Yellow */
+    color: #000000; /* Black text */
+}
+
+/* District Line */
+.district-line {
+    background-color: #00782A; /* Green */
+    color: #ffffff;
+}
+
+/* Hammersmith & City Line */
+.hammersmith-city-line {
+    background-color: #F3A9BB; /* Pink */
+    color: #000000;
+}
+
+/* Jubilee Line */
+.jubilee-line {
+    background-color: #A0A5A9; /* Silver/Gray */
+    color: #000000;
+}
+
+/* Metropolitan Line */
+.metropolitan-line {
+    background-color: #9B0056; /* Magenta/Purple */
+    color: #ffffff;
+}
+
+/* Northern Line */
+.northern-line {
+    background-color: #000000; /* Black */
+    color: #ffffff;
+}
+
+/* Piccadilly Line */
+.piccadilly-line {
+    background-color: #003688; /* Dark Blue */
+    color: #ffffff;
+}
+
+/* Victoria Line */
+.victoria-line {
+    background-color: #0098D4; /* Light Blue */
+    color: #ffffff;
+}
+
+/* Waterloo & City Line */
+.waterloo-city-line {
+    background-color: #95CDBA; /* Teal */
+    color: #000000;
+}
+
+/* Elizabeth Line */
+.elizabeth-line {
+    background-color: #9364CD; /* Purple */
+    color: #ffffff;
+}
+
+/* Overground */
+.overground-line {
+    background-color: #EE7C0E; /* Orange */
+    color: #000000;
+}
+
+/* DLR (Docklands Light Railway) */
+.dlr-line {
+    background-color: #00A4A7; /* Turquoise/Teal */
+    color: #ffffff;
+}
+
+
+/* London Overground */
+.london-overground-line {
+    background-color: #EE7C0E; /* Orange, same as Overground */
+    color: #000000;
+}
+
+
+
