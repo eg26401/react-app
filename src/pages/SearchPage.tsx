@@ -1,31 +1,24 @@
 import { useEffect } from "react";
-import useUserStore from "./user.js";
-import { Box, Button, Input, Stack } from "@chakra-ui/react";
-import { RiArrowRightLine } from "react-icons/ri";
+import UseUserStore from "./UseUserStore.tsx";
+//import { Box, Button, Input, Stack } from "@chakra-ui/react";
+//import { RiArrowRightLine } from "react-icons/ri";
 
 function SearchPage() {
-  const { fetchUsers, users } = useUserStore;
+  const { fetchUsers, users } = UseUserStore();
 
   useEffect(() => {
     fetchUsers();
   }, [fetchUsers]);
 
-  const name = users.name;
+  const name = users.length > 0 ? users[0].name : "No user available";
   return (
-    <>
+    <div>
       <h1> hello {name}</h1>
-      <Box background="grey" width="70%" padding="4%" color="black">
-        my box
-      </Box>
-      <Stack gap="4">
-        <Input placeholder="name" variant="subtle" required />
-        <Input placeholder="email" variant="subtle" required />
-        <Input placeholder="password" variant="subtle" required />
-      </Stack>
-      <Button variant="solid" color="red">
-        search <RiArrowRightLine />
-      </Button>
-    </>
+
+      <input placeholder="name" />
+      <input placeholder="email" />
+      <input placeholder="password" />
+    </div>
   );
 }
 

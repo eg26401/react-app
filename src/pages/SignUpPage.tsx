@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUserStore } from "./user.js"; // Make sure useUserStore is exported correctly from the store
+import UseUserStore from "./UseUserStore.tsx"; // Make sure useUserStore is exported correctly from the store
 
 function SignUpPage() {
   const [newUser, setNewUser] = useState({
@@ -8,7 +8,7 @@ function SignUpPage() {
     password: "",
   });
 
-  const { createUser } = useUserStore();
+  const { createUser } = UseUserStore();
 
   const handleAddUser = async () => {
     const { success, message } = await createUser(newUser);

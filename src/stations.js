@@ -337,3 +337,5 @@ else if (accessible == true){
     var heuristic = time + (inaccessible * 999) 
 }
 
+const priorityQueue = new PriorityQueue()
+var evaluated 
