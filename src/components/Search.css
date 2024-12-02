@@ -1,0 +1,86 @@
+/* General App Styling */
+.app-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #333;
+  }
+  
+  /* Search Bar Styling */
+  .search-bar {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-dropdown {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .search-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Filters Section */
+  .filters-section {
+    margin-top: 20px;
+  }
+  
+  .filters-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  /* Results Section */
+  .results-section {
+    margin-top: 30px;
+  }
+  
+  .results-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .results-section ol {
+    padding-left: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .app-container {
+      padding: 10px;
+    }
+  
+    .search-input {
+      font-size: 14px;
+    }
+  
+    .filters-section label {
+      font-size: 12px;
+    }
+  }
+  

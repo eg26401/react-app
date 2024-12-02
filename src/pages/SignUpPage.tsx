@@ -1,5 +1,6 @@
-import { useState } from "react";
-import UseUserStore from "./UseUserStore.tsx"; // Make sure useUserStore is exported correctly from the store
+import React, { useState } from "react";
+import UseUserStore from "./UseUserStore.tsx"; // Ensure this is correctly exported
+import "./SignUp.css"; // Import the CSS file for styling
 
 function SignUpPage() {
   const [newUser, setNewUser] = useState({
@@ -14,47 +15,72 @@ function SignUpPage() {
     const { success, message } = await createUser(newUser);
 
     if (!success) {
-      // Display an error message using a toast notification or other alert UI
-      // For example: toast.error(message);
       console.error("User creation failed:", message);
       return;
     }
 
-    // Optionally clear form or provide user feedback
     setNewUser({ name: "", email: "", password: "" });
     console.log("User created successfully:", message);
-    // Optionally, display a success message or redirect
   };
 
-  return (
-    <div>
-      <h1>Sign Up</h1>
-      <input
-        className="input_box"
-        type="text"
-        placeholder="Enter your name"
-        name="name"
-        value={newUser.name}
-        onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
-      />
+  // Calculate progress
+  const filledFields = Object.values(newUser).filter(
+    (field) => field !== ""
+  ).length;
+  const progressPercentage = (filledFields / 3) * 100; // 3 fields to complete
 
-      <input
-        className="input_box"
-        type="text"
-        placeholder="Enter your email address"
-        name="email"
-        value={newUser.email}
-        onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
-      />
-      <input
-        className="input_box"
-        type="password"
-        placeholder="Enter a password"
-        name="password"
-        value={newUser.password}
-        onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
-      />
-      <button onClick={handleAddUser}>Sign Up</button>
+  return (
+    <div className="signup-container">
+      <div className="signup-card">
+        {/* Progress bar */}
+        <div className="progress signup-progress">
+          <div
+            className="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            style={{ width: `${progressPercentage}%` }}
+            aria-valuenow={progressPercentage}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          ></div>
+        </div>
+
+        <h1 className="text-center mb-4">Sign Up</h1>
+
+        <input
+          className="form-control mb-3"
+          type="text"
+          placeholder="Enter your name"
+          name="name"
+          value={newUser.name}
+          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+        />
+
+        <input
+          className="form-control mb-3"
+          type="text"
+          placeholder="Enter your email address"
+          name="email"
+          value={newUser.email}
+          onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+        />
+
+        <input
+          className="form-control mb-4"
+          type="password"
+          placeholder="Enter a password"
+          name="password"
+          value={newUser.password}
+          onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
+        />
+
+        <button
+          className="btn btn-primary w-100"
+          onClick={handleAddUser}
+          disabled={filledFields < 3}
+        >
+          Sign Up
+        </button>
+      </div>
     </div>
   );
 }

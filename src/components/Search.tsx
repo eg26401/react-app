@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./Search.css"; // CSS for styling
 
 type Station = {
   id: string;
@@ -66,44 +67,21 @@ const SearchBar: React.FC<{
   };
 
   return (
-    <div style={{ width: "300px", position: "relative", marginBottom: "16px" }}>
+    <div className="search-bar">
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
         placeholder={placeholder}
-        style={{
-          width: "100%",
-          padding: "8px",
-          fontSize: "16px",
-          boxSizing: "border-box",
-        }}
+        className="search-input"
       />
       {filteredStations.length > 0 && (
-        <ul
-          style={{
-            listStyleType: "none",
-            margin: 0,
-            padding: 0,
-            border: "1px solid #ddd",
-            position: "absolute",
-            width: "100%",
-            maxHeight: "150px",
-            overflowY: "auto",
-            backgroundColor: "white",
-            zIndex: 1,
-          }}
-        >
+        <ul className="search-dropdown">
           {filteredStations.map((station) => (
             <li
               key={station.id}
               onClick={() => handleStationClick(station.commonName)}
-              style={{
-                padding: "8px",
-                cursor: "pointer",
-                backgroundColor:
-                  query === station.commonName ? "#f0f0f0" : "white",
-              }}
+              className="search-item"
             >
               {station.commonName}
             </li>
@@ -121,7 +99,6 @@ const App: React.FC = () => {
     RouteInstruction[]
   >([]);
 
-  // Filter states
   const [isWheelchairAccessible, setIsWheelchairAccessible] = useState(false);
   const [isFastest, setIsFastest] = useState(false);
   const [isLeastChanges, setIsLeastChanges] = useState(false);
@@ -130,12 +107,10 @@ const App: React.FC = () => {
     const fetchRoute = async () => {
       if (startStation && endStation) {
         try {
-          // Construct query parameters based on filters
           let url = `https://api.tfl.gov.uk/Journey/JourneyResults/${encodeURIComponent(
             startStation
           )}/to/${encodeURIComponent(endStation)}?`;
 
-          // Add filter parameters
           if (isWheelchairAccessible) {
             url += "&journeyPreference=leastWalking";
           }
@@ -170,20 +145,19 @@ const App: React.FC = () => {
   ]);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>London Underground Route Finder</h1>
+    <div className="app-container">
+      <div className="search-section">
+        <SearchBar
+          placeholder="Select Start Station"
+          onSelectStation={(station) => setStartStation(station)}
+        />
+        <SearchBar
+          placeholder="Select End Station"
+          onSelectStation={(station) => setEndStation(station)}
+        />
+      </div>
 
-      <SearchBar
-        placeholder="Select Start Station"
-        onSelectStation={(station) => setStartStation(station)}
-      />
-
-      <SearchBar
-        placeholder="Select End Station"
-        onSelectStation={(station) => setEndStation(station)}
-      />
-
-      <div style={{ marginTop: "20px" }}>
+      <div className="filters-section">
         <h2>Filters</h2>
         <label>
           <input
@@ -193,7 +167,6 @@ const App: React.FC = () => {
           />
           Wheelchair Accessible
         </label>
-        <br />
         <label>
           <input
             type="checkbox"
@@ -202,7 +175,6 @@ const App: React.FC = () => {
           />
           Fastest
         </label>
-        <br />
         <label>
           <input
             type="checkbox"
@@ -214,7 +186,7 @@ const App: React.FC = () => {
       </div>
 
       {startStation && endStation && (
-        <div style={{ marginTop: "20px" }}>
+        <div className="results-section">
           <h2>
             Directions from {startStation} to {endStation}
           </h2>

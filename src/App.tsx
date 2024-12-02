@@ -5,31 +5,32 @@ import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
 import ResultsPage from "./pages/ResultsPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import Map from "./components/Map";
-
+//import Map from "./components/Map";
 import SearchBar from "./components/Search";
 import Header from "./components/Header";
 
-function App() {
+function HomeLayout() {
   return (
     <>
-      <div>
-        <Header />
-        <SearchBar />
-        <Map />
-
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomeScreen />} />
-            <Route path="home" element={<HomeScreen />} />
-            <Route path="login" element={<LogInPage />} />
-            <Route path="results" element={<ResultsPage />} />
-            <Route path="signup" element={<SignUpPage />} />
-            <Route path="forgottenpassword" element={<ForgotPasswordPage />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <Header />
+      <SearchBar />
+      <HomeScreen />
     </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeLayout />} />
+        <Route path="home" element={<HomeLayout />} />
+        <Route path="login" element={<LogInPage />} />
+        <Route path="results" element={<ResultsPage />} />
+        <Route path="signup" element={<SignUpPage />} />
+        <Route path="forgottenpassword" element={<ForgotPasswordPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
