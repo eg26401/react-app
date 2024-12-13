@@ -1,0 +1,72 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Tan+Nimbus&display=swap');
+
+
+/* Overall container styling */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Full viewport height */
+    text-align: center;
+    background-color: #f8f9fa; /* Light background */
+    padding: 20px;
+    font-family: 'Tan Nimbus', serif;
+  }
+  
+  /* Title styling */
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  /* Subtitle styling */
+  .info-title {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    color: #555;
+    max-width: 600px;
+  }
+  
+  /* Button group styling */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Button base styling */
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Primary button styling */
+  .primary-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .primary-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Secondary button styling */
+  .secondary-button {
+    background-color: #f8f9fa;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  .secondary-button:hover {
+    background-color: #e2e6ea;
+  }
+  

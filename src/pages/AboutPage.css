@@ -1,0 +1,70 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333333;
+  }
+  
+  /* About Page Container */
+  .about-page {
+    text-align: center;
+    padding-bottom: 3rem; /* Ensure space above the footer */
+  }
+  
+  /* Header Section */
+  .about-header {
+    background-color: #0019A8; /* Piccadilly Line Blue */
+    color: white;
+    padding: 2rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-header p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  /* History Section */
+  .about-history {
+    padding: 2rem;
+  }
+  
+  .about-history h2 {
+    color: #E41F1F; /* Central Line Red */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-history p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Images Section */
+  .about-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .history-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid #FFD700; /* Circle Line Yellow */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .history-image:hover {
+    transform: scale(1.05);
+  }
+  

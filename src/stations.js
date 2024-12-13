@@ -272,18 +272,7 @@ const stations= [
 //should i do 2d array or lists 
 // decide herustic that will be in the list/matrix 
 
-Acton_Town =  ["Ealing Common", "Chiswick Park", "South Ealing", "Turnham Green"]
-Aldgate =  ["Aldgate East", "Liverpool Street", "Tower Hill"] //idk full 
-Algate_East = ["Liverpool Street","Whitechapel"]
-Alperton  = ["Park Royal","Sudbury Town"]
-Amersham  = ["Chesham","Chalfont & Latimer"]
-Angel = ["Old Street", "King's Cross & St Pancras"]
-Archway =  ["Highgate","Tufnell Park", "Upper Holloway"]
-Arnos_Grove = ["Southgate", "Bounds Green"]
-Arsenal = ["Finsbury Park","Holloway Road"]
-Baker_Street = ["Great Portland Street","Finchley Road", "EdgeWare Road",  "St John's Wood",  "Marylebone", "Regent's Park", "Bond Street"]
-Balham= ["Clapham South", "Tooting Bec"]
-Bank  = ["Liverpool Street","Monument"]
+
 
 Bakerloo = ["Elephant & Castle", "Lambeth North","Waterloo", "Embankment", "Charing Cross","Piccadilly","Oxford Circus","Regent's Park", "Baker Street","Marylebone","Edgware","Paddington", "Warwick Avenue","Maida Vale","Kilburn Park","Queen's Park","Kensal Green", "Willesden Junction","Harlesden","Stonebridge Park","Wembley Central","North Wembley","South Kenton","Kenton", "Harrow & Wealdstone"]
 Central = ["West Ruislip","Ruislip Gardens","South Ruislip","Northolt","Greenford","Perivale","Hangerlane"]
@@ -312,10 +301,34 @@ Elizabeth = ["West Drayton", "Hayes & Harlington", "Southall", "Hanwell", "West 
 Elizabeth_Up = ["Stratford", "Maryland", "Forest Gate", "Manor Park", "Ilford", "Seven Kings", "Goodmayes", "Chadwell Health","Romford", "Gidea Park", "Harold Wood", "Brentwood", "Shenfield" ]
 Elizabeth_Down = ["West India Quay", "Custom House", "Woolwich", "Abbey Wood"]
 
+//average line speeds in km/h 
+//averages from https://tfl.gov.uk/corporate/transparency/freedom-of-information/foi-request-detail?referenceId=FOI-0228-1819
+//elizabeth line- average was 50.42 = 50 https://tfl.gov.uk/corporate/transparency/freedom-of-information/foi-request-detail?referenceId=FOI-1394-2223
+const lineSpeeds = {
+    Bakerloo: 27,
+    Central: 37,
+    Circle: 24,
+    District:30,
+    Hammersmith: 25,
+    Jubilee: 39,
+    Metropolitan:44 ,
+    Northern: 33,
+    Piccadilly: 33,
+    Victoria: 41,
+    Waterloo: 33,
+    Elizabeth: 50
+
+  };
+
+
+
+//user choices 
 chosen_start = ""
 chosen_end = ""
-//accessibiliy = false 
-least_change_overs = false 
+accessibiliy = false 
+least_change_overs = false
+
+
 if (accessibility == true){
     //non accessible edges = 9999
     //do this
@@ -323,19 +336,31 @@ if (accessibility == true){
 
 //heurustics 
 var distance = sqrt(start_long_lat - end_long_lat)
-var speed = av_speed_of_line 
+var speed = lineSpeeds.Hammersmith; //EXAMPLE
 var time = distance/time * 60 
 //*60 for hours to mins bc km/h 
 
-if(least_change_overs == false && accessibility == false){
-    var heuristic = time 
-}
-else if (least_change_overs == true){
-    var heuristic = time + (changeovers*3)
-}
-else if (accessible == true){
-    var heuristic = time + (inaccessible * 999) 
-}
 
-const priorityQueue = new PriorityQueue()
-var evaluated 
+const a_star=(chosen_start, chosen_end)=>{
+    const gScore = {}; // start to current node
+    const fScore = {}; // Estimated cost from start to end through current node
+
+
+
+    if(least_change_overs == false && accessibility == false){
+        var heuristic = time;
+        //how do i know whih direction to go in?
+
+
+
+    }
+    else if (least_change_overs == true){
+        var heuristic = time + (changeovers*3)
+    }
+    else if (accessible == true){
+        var heuristic = time + (inaccessible * 999) 
+    }
+
+    const priorityQueue = new PriorityQueue()
+    var evaluated 
+}

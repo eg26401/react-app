@@ -1,0 +1,63 @@
+.wonky-box {
+    color: #060000;
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: rotate(-2deg); /* Default wonky rotation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .wonky-box:hover {
+    transform: rotate(0deg); /* Straighten on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Specific Rotation for Boxes */
+  .box-1 {
+    transform: rotate(-3deg);
+    background-color: #ebebeb; 
+
+  }
+  .box-2 {
+    transform: rotate(3deg);
+    background-color: #b1dcff; 
+  }
+  .box-3 {
+    transform: rotate(-2deg);
+    background-color: #ebebeb; 
+  }
+  .box-4 {
+    transform: rotate(2deg);
+    background-color: #b1dcff; 
+  }
+  
+  /* Step Number Styling */
+  .step-num-odd {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    background-color:  #8e8e8e; /* London Underground Blue */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    transform: rotate(-10deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .step-num-even {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    background-color:  #2134ae; /* London Underground Blue */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    transform: rotate(-10deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  

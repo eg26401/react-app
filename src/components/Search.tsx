@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Search.css"; // CSS for styling
+import "./Search.css";
 
 type Station = {
   id: string;
@@ -92,7 +92,7 @@ const SearchBar: React.FC<{
   );
 };
 
-const App: React.FC = () => {
+const Search: React.FC = () => {
   const [startStation, setStartStation] = useState<string | null>(null);
   const [endStation, setEndStation] = useState<string | null>(null);
   const [routeInstructions, setRouteInstructions] = useState<
@@ -102,47 +102,6 @@ const App: React.FC = () => {
   const [isWheelchairAccessible, setIsWheelchairAccessible] = useState(false);
   const [isFastest, setIsFastest] = useState(false);
   const [isLeastChanges, setIsLeastChanges] = useState(false);
-
-  useEffect(() => {
-    const fetchRoute = async () => {
-      if (startStation && endStation) {
-        try {
-          let url = `https://api.tfl.gov.uk/Journey/JourneyResults/${encodeURIComponent(
-            startStation
-          )}/to/${encodeURIComponent(endStation)}?`;
-
-          if (isWheelchairAccessible) {
-            url += "&journeyPreference=leastWalking";
-          }
-          if (isFastest) {
-            url += "&journeyPreference=leastTime";
-          }
-          if (isLeastChanges) {
-            url += "&journeyPreference=fewerInterchanges";
-          }
-
-          const response = await axios.get(url);
-          const instructions = response.data.journeys[0].legs.map(
-            (leg: any) => ({
-              instruction: leg.instruction,
-            })
-          );
-          setRouteInstructions(instructions);
-        } catch (error) {
-          console.error("Error fetching route data:", error);
-          setRouteInstructions([]);
-        }
-      }
-    };
-
-    fetchRoute();
-  }, [
-    startStation,
-    endStation,
-    isWheelchairAccessible,
-    isFastest,
-    isLeastChanges,
-  ]);
 
   return (
     <div className="app-container">
@@ -167,14 +126,7 @@ const App: React.FC = () => {
           />
           Wheelchair Accessible
         </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={isFastest}
-            onChange={() => setIsFastest(!isFastest)}
-          />
-          Fastest
-        </label>
+
         <label>
           <input
             type="checkbox"
@@ -184,25 +136,8 @@ const App: React.FC = () => {
           Least Changeovers
         </label>
       </div>
-
-      {startStation && endStation && (
-        <div className="results-section">
-          <h2>
-            Directions from {startStation} to {endStation}
-          </h2>
-          {routeInstructions.length > 0 ? (
-            <ol>
-              {routeInstructions.map((instruction, index) => (
-                <li key={index}>{instruction.instruction.summary}</li>
-              ))}
-            </ol>
-          ) : (
-            <p>No route available between these stations.</p>
-          )}
-        </div>
-      )}
     </div>
   );
 };
 
-export default App;
+export default Search;

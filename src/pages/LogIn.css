@@ -1,63 +1,132 @@
-/* Center the container vertically and horizontally */
+/* General Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f7f7;
+  
+}
+
+/* Login Container */
 .login-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f8f9fa; /* Light gray background */
-  padding: 20px;
-  box-sizing: border-box;
 }
 
-/* Styling for the card */
-.login-card {
-  width: 400px;
-  background: #fff;
-  border: 1px solid #ddd;
+/* Background Lines */
+.tube-lines-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 8px;
+  height: 150%;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  box-sizing: border-box;
+  opacity: 0.8;
 }
 
-/* General form input styling */
-.form-control {
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 8px 12px;
+.central-line {
+  background-color: #E41F1F; /* Central Line Red */
+  top: -10%;
+  left: 15%;
+  transform: rotate(30deg);
 }
 
-/* Button styling */
-.btn-primary {
-  background-color: #007bff; /* Bootstrap primary color */
-  border-color: #007bff;
-  font-size: 16px;
-  padding: 10px 0;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+.piccadilly-line {
+  background-color: #0019A8; /* Piccadilly Line Blue */
+  top: 10%;
+  left: 50%;
+  transform: rotate(-20deg);
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  transform: scale(1.02);
+.circle-line {
+  background-color: #FFD700; /* Circle Line Yellow */
+  top: 5%;
+  left: 70%;
+  transform: rotate(45deg);
 }
 
-.btn-primary:disabled {
-  background-color: #d6d8db;
-  border-color: #d6d8db;
-  cursor: not-allowed;
+.jubilee-line {
+  background-color: #868F98; /* Jubilee Line Grey */
+  top: -5%;
+  left: 30%;
+  transform: rotate(-60deg);
 }
 
-/* Forgot password link styling */
+/* Card Styling */
+.login-card {
+  position: relative;
+  z-index: 10; /* Ensure it stays on top of the lines */
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.login-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0019A8; /* Piccadilly Line Blue */
+  margin-bottom: 1.5rem;
+}
+
+/* Input Fields */
+.login-input {
+  font-size: 1rem;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: #FFD700; /* Circle Line Yellow */
+  outline: none;
+}
+
+/* Button Styling */
+.login-button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #0019A8; /* Piccadilly Line Blue */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #003DA5; /* Slightly darker blue */
+}
+
+/* Forgot Password Link */
 .forgot-password-link {
   display: block;
   text-align: center;
-  margin-top: 10px;
-  color: #007bff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #E41F1F; /* Central Line Red */
+  margin-top: 1rem;
   text-decoration: none;
-  font-size: 14px;
+  transition: color 0.3s ease;
 }
 
 .forgot-password-link:hover {
-  text-decoration: underline;
+  color: #FFD700; /* Circle Line Yellow */
 }

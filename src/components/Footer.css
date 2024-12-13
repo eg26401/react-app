@@ -1,0 +1,31 @@
+.footer {
+    position: relative; /* Change to relative to allow normal flow */
+    z-index: 1000; /* Ensure it appears above other elements */
+    background-color: #2682dd; /* Footer background */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Full width of viewport */
+    padding: 0.5rem 1rem; /* Space inside the footer */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space between elements */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        justify-content: center; /* Center content */
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .auth-buttons {
+        margin-top: 0.5rem;
+        justify-content: center;
+    }
+}

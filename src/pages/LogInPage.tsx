@@ -1,23 +1,29 @@
 import React from "react";
-import "./LogIn.css"; // Import the CSS file
+import "./LogIn.css"; // Styling in CSS
 
 function LogInPage() {
   return (
     <div className="login-container">
+      <div className="tube-lines-background">
+        <div className="line central-line"></div>
+        <div className="line piccadilly-line"></div>
+        <div className="line circle-line"></div>
+        <div className="line jubilee-line"></div>
+      </div>
       <div className="login-card">
-        <h1 className="text-center mb-4">Log In</h1>
+        <h1 className="login-title">Welcome to Tube Finder</h1>
         <div className="card-body">
           <input
-            className="form-control mb-3"
+            className="form-control login-input"
             type="text"
-            placeholder="Enter your email address"
+            placeholder="Email Address"
           />
           <input
-            className="form-control mb-4"
+            className="form-control login-input"
             type="password"
-            placeholder="Enter your password"
+            placeholder="Password"
           />
-          <button className="btn btn-primary w-100 mb-3">Submit</button>
+          <button className="btn btn-primary login-button">Log In</button>
           <a href="/forgottenpassword" className="forgot-password-link">
             Forgot password?
           </a>
